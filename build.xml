@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="git test pro" default="print_msg">
          <target name="print_msg" depends="dependency">
-           <echo>Hellow world</echo>
+           <echo>Hellow wwworld</echo>
            </target>
            <property file="build.property"/>
            <target name="dependency" depends="dependency2">
