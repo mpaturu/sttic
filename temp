@@ -1,0 +1,25 @@
+onShowMessage: function () {
+    var oInput = this.byId("inputFieldId"); // Your input field ID
+    var oRect = oInput.getDomRef().getBoundingClientRect();
+
+    // Create a dummy element to anchor the MessageToast
+    var oAnchor = document.createElement("div");
+    oAnchor.style.position = "absolute";
+    oAnchor.style.left = oRect.left + "px";
+    oAnchor.style.top = (oRect.top + oRect.height) + "px";
+    document.body.appendChild(oAnchor);
+
+    sap.m.MessageToast.show("Your message goes here", {
+        duration: 3000,
+        width: "15em",
+        my: "center top",
+        at: "center bottom",
+        of: oAnchor,
+        offset: "0 10" // Adjust the offset as needed
+    });
+
+    // Remove the dummy element after the toast is shown
+    setTimeout(function() {
+        document.body.removeChild(oAnchor);
+    }, 3500); // Duration of the MessageToast plus some buffer
+}
